@@ -1,0 +1,50 @@
+   {% extends 'mblog/base.html' %}
+  
+  <title>{% block title %}To-do-list{% endblock %}</title>
+  
+  {% block content %}
+     {% if messages %}
+        {% for message in messages %}
+      <div class="alert alert-warning alert-dismissible"  role="alert"> 
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+             <small><sup> X</sup></small>
+           </button>
+
+        {{ message }}
+      </div>
+        {% endfor %}
+
+      {% endif %}
+       <br/>
+      
+<table class="table table-bordered">
+      {% for item in contex %}  
+  <thead>
+     
+     
+    
+  </thead>
+<tbody>
+    <tr>
+     
+    <td><h3>{{ item.item }}</h3></td> 
+    <td> <a href="{% url "delete" item.id %}"> Delete</a></td>
+    <td> <a href="{% url "edit" item.id %}"> Edit</a></td>
+  </tr>
+    <tr>
+     
+  </tbody>
+
+  
+    <tr>
+       
+      
+      {%  endfor  %}
+    </tr>
+    
+</table>
+  
+  {% endblock %}
+
+
+
